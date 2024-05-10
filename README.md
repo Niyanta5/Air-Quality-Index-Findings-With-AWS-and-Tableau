@@ -82,7 +82,7 @@ Core measurements for each pollutant include:
 ![phaseIII](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/c2ed849e36eefcf49a6373ca07ed605b525c0092/screenshots/Glue%20Snips/ETL_Phase3.PNG)
 
 ## Step Functions:
-![Step Functions](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/tree/c2ed849e36eefcf49a6373ca07ed605b525c0092/screenshots/Step%20Function%20Snip)
+![Step Functions](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/cab135764810336df29955759b8cf9c84453544f/screenshots/Step%20Function%20Snip/Step_Function.PNG)
 
 
 ## Data Visualization Using Tableau
