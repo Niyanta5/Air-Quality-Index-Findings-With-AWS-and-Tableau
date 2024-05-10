@@ -33,7 +33,7 @@ Let's explore the air quality data using AWS services and visualize it in Tablea
 
 
 ## Entity Relational Model
-![ER Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/88377d9350c9393c681b3992699a09c7fce9bfb9/Logical%20Diagram/aqi_normalized_logical_diagram.pdf)
+![ER Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/79644c66947c94dfdc813d38712e9eae9122862e/Logical%20Diagram/aqi_normalized_logical_diagram.pdf)
 
 ## Grain
 
