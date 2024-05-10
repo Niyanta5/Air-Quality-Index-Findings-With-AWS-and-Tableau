@@ -11,7 +11,7 @@ Let's explore the air quality data using AWS services and visualize it in Tablea
 - **Web API**: [AQS Web API documentation](https://aqs.epa.gov/aqsweb/documents/data_api.html)
 
 ## AWS Architecture Diagram
-![AWS Architecture Diagram](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/132cdfa1f1d698e6079f2925eed458bad9f7a9d1/ArchitectureDiagramFinal.jpeg)
+![AWS Architecture Diagram](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/98cf669c61494f6a379974268f4dc54532f967d2/Architecture%20Diagram/awsarchitecturediagram.jpeg)
 
 ## Data Dictionary of AQI 📜
 
