@@ -32,7 +32,8 @@ Let's explore the air quality data using AWS services and visualize it in Tablea
 | city_name        | The name of the city where the location is located.        | Categorical |
 
 ## Entity Relational Model
-![ER Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/79644c66947c94dfdc813d38712e9eae9122862e/Logical%20Diagram/aqi_normalized_logical_diagram.pdf)
+![image](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/assets/146588429/2efe83d0-309c-4173-8f34-a61c81e4edc7)
+
 
 ## Grain
 
