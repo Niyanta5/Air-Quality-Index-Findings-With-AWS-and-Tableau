@@ -1,4 +1,4 @@
-# Air Quality Analysis Project
+# Unveiling U.S. Air Quality Dynamics through AWS Insights 🌬️📊
 
 ## Introduction
 
@@ -13,7 +13,7 @@ Let's explore the air quality data using AWS services and visualize it in Tablea
 ## AWS Architecture Diagram
 ![AWS Architecture Diagram](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/132cdfa1f1d698e6079f2925eed458bad9f7a9d1/ArchitectureDiagramFinal.jpeg)
 
-## Data Dictionary of AQI
+## Data Dictionary of AQI 📜
 
 | Column Name      | Description                                                 | Category  |
 |------------------|-------------------------------------------------------------|-----------|
@@ -31,7 +31,6 @@ Let's explore the air quality data using AWS services and visualize it in Tablea
 | country_name     | The name of the country where the location is located.     | Categorical |
 | city_name        | The name of the city where the location is located.        | Categorical |
 
-
 ## Entity Relational Model
 ![ER Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/79644c66947c94dfdc813d38712e9eae9122862e/Logical%20Diagram/aqi_normalized_logical_diagram.pdf)
 
@@ -41,14 +40,14 @@ The grain of the data is at the daily level, where each record in the fact table
 
 ## Dimensions
 
-### Time Dimension
+### Time Dimension ⏰
 
 - **Date Local**: The date of the measurements.
 - **Day of the Week**: The day of the week corresponding to the date.
 - **Month**: The month corresponding to the date.
 - **Year**: The year corresponding to the date.
 
-### Location Dimension
+### Location Dimension 🌎
 
 - **State Code**: Code representing the state where the measurements were taken.
 - **County Code**: Code representing the county where the measurements were taken.
@@ -58,7 +57,7 @@ The grain of the data is at the daily level, where each record in the fact table
 - **County Name**: The name of the county where the measurements were taken.
 - **City Name**: The name of the city where the measurements were taken.
 
-### State Dimension
+### State Dimension 🏛️
 
 - **State Code**: Code representing the state.
 - **State Name**: The name of the state.
@@ -72,7 +71,7 @@ Core measurements for each pollutant include:
 - **1st Max Hour**: The hour when the highest value for the pollutant was measured.
 - **Arithmetic Mean**: The average value of the pollutant over the day.
 
-## Dimensional Model:
+## Dimensional Model
 ![Dimensional Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/79644c66947c94dfdc813d38712e9eae9122862e/Logical%20Diagram/Dimensional_Model.pdf)
 
 ## ETL Process Using AWS Glue:
@@ -87,11 +86,10 @@ Core measurements for each pollutant include:
 ## Step Functions:
 ![Step Functions](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/cab135764810336df29955759b8cf9c84453544f/screenshots/Step%20Function%20Snip/Step_Function.PNG)
 
-
 ## Data Visualization Using Tableau
 [Data Visualization in Tableau](https://public.tableau.com/app/profile/niyanta.pandey/viz/IAFinalProjectVisualization_17153012189600/FinalDashboard?publish=yes)
 
-# Conclusion
+# Conclusion 📝
 
 Our analysis of U.S. air quality revealed concerning trends and valuable insights. By leveraging AWS and rigorous data exploration, we identified Arizona as a state with consistently high levels of all measured pollutants (CO, NO2, PM2.5, PM10, and Ozone). Pennsylvania, while appearing in the top 5 for all pollutants, stood out for particularly high PM2.5 levels, likely due to industrial activity.
 
@@ -99,7 +97,7 @@ Seasonal patterns emerged, with pollution peaking in winter (December-February) 
 
 Moving forward, integrating machine learning models and expanding data collection efforts present exciting opportunities for further refinement. Overall, this project underscores the power of data-driven approaches in tackling environmental challenges and informing decisions for a healthier future.
 
-## Lessons Learned
+## Lessons Learned 🎓
 
 ### AWS Lambda:
 
@@ -116,11 +114,10 @@ Moving forward, integrating machine learning models and expanding data collectio
 - **Orchestration Power:** Orchestrate complex workflows involving multiple AWS services for organized data processing pipelines.
 - **Error Handling:** Ensure robust error handling within workflows to prevent issues from impacting the entire pipeline and enable easier recovery.
 
-## Improvements
+## Improvements 🚀
 
 - API calls can be implemented using AWS Lambda.
 - AWS SageMaker integration can be explored for developing ML models to enhance complex data visualizations.
 - Expanding the dataset to include additional years can improve pattern and trend analysis.
 - AWS QuickSight can be utilized for streamlined data visualization.
 - CloudWatch can be employed for monitoring purposes.
-
