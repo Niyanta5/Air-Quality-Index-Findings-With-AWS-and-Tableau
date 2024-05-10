@@ -86,7 +86,7 @@ Core measurements for each pollutant include:
 
 
 ## Data Visualization Using Tableau
-![Data Visualization in Tableau](https://public.tableau.com/app/profile/niyanta.pandey/viz/IAFinalProjectVisualization_17153012189600/FinalDashboard?publish=yes)
+[Data Visualization in Tableau](https://public.tableau.com/app/profile/niyanta.pandey/viz/IAFinalProjectVisualization_17153012189600/FinalDashboard?publish=yes)
 
 # Conclusion
 
