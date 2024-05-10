@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Air pollution poses a significant threat to public health, yet readily available data often remains unexplored. By delving into the rich details captured in daily Air Quality System (AQS) summaries, we can move beyond basic understanding and identify actionable insights to inform decision-making. This project aims to address air pollution concerns by uncovering patterns and identifying problematic areas.
+Air pollution poses a significant threat to public health, yet readily available data often remains unexplored. By delving into the rich details captured in daily Air Quality Index (AQI), we can move beyond basic understanding and identify actionable insights to inform decision-making. This project aims to address air pollution concerns by uncovering patterns and identifying problematic areas.
 Let's explore the air quality data using AWS services and visualize it in Tableau.
 
 ## Data Sources
