@@ -72,6 +72,9 @@ Core measurements for each pollutant include:
 - **1st Max Hour**: The hour when the highest value for the pollutant was measured.
 - **Arithmetic Mean**: The average value of the pollutant over the day.
 
+## Dimensional Model:
+![Dimensional Model](https://github.com/Niyanta5/InfoArch_AQI_Final_Project/blob/79644c66947c94dfdc813d38712e9eae9122862e/Logical%20Diagram/Dimensional_Model.pdf)
+
 ## ETL Process Using AWS Glue:
 
 # Phase I:
