@@ -1,0 +1,182 @@
+{
+	"jobConfig": {
+		"name": "Location_Dim",
+		"description": "",
+		"role": "arn:aws:iam::590183744126:role/Glue_Fullaccess",
+		"command": "glueetl",
+		"version": "4.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 10,
+		"maxCapacity": 10,
+		"maxRetries": 0,
+		"timeout": 2880,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "Location_.py",
+		"scriptLocation": "s3://aws-glue-assets-590183744126-us-east-2/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [],
+		"tags": [],
+		"jobMode": "VISUAL_MODE",
+		"createdOn": "2024-05-05T07:28:43.128Z",
+		"developerMode": false,
+		"connectionsList": [
+			"Mysql connection"
+		],
+		"temporaryDirectory": "s3://aws-glue-assets-590183744126-us-east-2/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": false,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-590183744126-us-east-2/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null
+	},
+	"dag": {
+		"node-1714926064977": {
+			"nodeId": "node-1714926064977",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1714894147518"
+			],
+			"name": "Location_Dim",
+			"generatedNodeName": "Location_Dim_node1714926064977",
+			"classification": "DataSink",
+			"type": "MySQL",
+			"streamingBatchInterval": 100,
+			"database": "aqi_dw",
+			"table": "aqi_dw_location_dimension",
+			"format": null,
+			"partitionKeys": [],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714894147518": {
+			"nodeId": "node-1714894147518",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1714894127473",
+				"node-1714894073628"
+			],
+			"name": "Populate_Location",
+			"generatedNodeName": "Populate_Location_node1714894147518",
+			"classification": "Transform",
+			"type": "SqlCode",
+			"sqlAliases": [
+				{
+					"from": "node-1714894127473",
+					"alias": "State_Dimensions"
+				},
+				{
+					"from": "node-1714894073628",
+					"alias": "Locations"
+				}
+			],
+			"outputSchemas": [
+				[
+					{
+						"key": "State_Key",
+						"fullPath": [
+							"State_Key"
+						],
+						"type": "bigint",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "County_Code",
+						"fullPath": [
+							"County_Code"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Longitude",
+						"fullPath": [
+							"Longitude"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Latitude",
+						"fullPath": [
+							"Latitude"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "County_Name",
+						"fullPath": [
+							"County_Name"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "City_Name",
+						"fullPath": [
+							"City_Name"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"parentsValid": true,
+			"calculatedType": "",
+			"sqlQuery": "SELECT \n    DISTINCT S.State_Key AS State_Key,\n    L.county_code AS County_Code,\n    L.longitude as Longitude,\n    L.latitude AS Latitude,\n    L.county_name AS County_Name,\n    L.city_name AS City_Name\nFROM Locations AS L INNER JOIN State_Dimensions S ON S.State_Code = L.state_code AND S.State_Name = L.state_name;",
+			"codeGenVersion": 2
+		},
+		"node-1714894073628": {
+			"nodeId": "node-1714894073628",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Locations",
+			"generatedNodeName": "Locations_node1714894073628",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.Locations",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": null,
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714894127473": {
+			"nodeId": "node-1714894127473",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "State_Dimensions",
+			"generatedNodeName": "State_Dimensions_node1714894127473",
+			"classification": "DataSource",
+			"type": "Catalog",
+			"isCatalog": true,
+			"database": "aqi_dw",
+			"table": "aqi_dw_state_dimension",
+			"calculatedType": "",
+			"runtimeParameters": [],
+			"codeGenVersion": 2
+		}
+	},
+	"hasBeenSaved": false
+}

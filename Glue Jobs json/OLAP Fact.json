@@ -1,0 +1,728 @@
+{
+	"jobConfig": {
+		"name": "OLAP Fact",
+		"description": "",
+		"role": "arn:aws:iam::590183744126:role/Glue_Fullaccess",
+		"command": "glueetl",
+		"version": "4.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 10,
+		"maxCapacity": 10,
+		"maxRetries": 0,
+		"timeout": 2880,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "OLAP Fact.py",
+		"scriptLocation": "s3://aws-glue-assets-590183744126-us-east-2/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [],
+		"tags": [],
+		"jobMode": "VISUAL_MODE",
+		"createdOn": "2024-05-05T06:23:23.415Z",
+		"developerMode": false,
+		"connectionsList": [
+			"Mysql connection"
+		],
+		"temporaryDirectory": "s3://aws-glue-assets-590183744126-us-east-2/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": false,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-590183744126-us-east-2/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null
+	},
+	"dag": {
+		"node-1714891194972": {
+			"nodeId": "node-1714891194972",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "AirQualityNO2",
+			"generatedNodeName": "AirQualityNO2_node1714891194972",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.AirQualityNO2",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": [
+				[
+					{
+						"key": "location_id",
+						"fullPath": [
+							"location_id"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "date_local",
+						"fullPath": [
+							"date_local"
+						],
+						"type": "date",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "aqi_no2",
+						"fullPath": [
+							"aqi_no2"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_value_no2",
+						"fullPath": [
+							"first_max_value_no2"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_hour_no2",
+						"fullPath": [
+							"first_max_hour_no2"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "arithmetic_mean_no2",
+						"fullPath": [
+							"arithmetic_mean_no2"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714891089429": {
+			"nodeId": "node-1714891089429",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "AirQualityPM10",
+			"generatedNodeName": "AirQualityPM10_node1714891089429",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.AirQualityPM10",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": [
+				[
+					{
+						"key": "location_id",
+						"fullPath": [
+							"location_id"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "date_local",
+						"fullPath": [
+							"date_local"
+						],
+						"type": "date",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "aqi_pm_10",
+						"fullPath": [
+							"aqi_pm_10"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_value_pm_10",
+						"fullPath": [
+							"first_max_value_pm_10"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_hour_pm_10",
+						"fullPath": [
+							"first_max_hour_pm_10"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "arithmetic_mean_pm_10",
+						"fullPath": [
+							"arithmetic_mean_pm_10"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714891195763": {
+			"nodeId": "node-1714891195763",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "AirQualityCO",
+			"generatedNodeName": "AirQualityCO_node1714891195763",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.AirQualityCO",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": [
+				[
+					{
+						"key": "location_id",
+						"fullPath": [
+							"location_id"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "date_local",
+						"fullPath": [
+							"date_local"
+						],
+						"type": "date",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "aqi_co",
+						"fullPath": [
+							"aqi_co"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_value_co",
+						"fullPath": [
+							"first_max_value_co"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_hour_co",
+						"fullPath": [
+							"first_max_hour_co"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "arithmetic_mean_co",
+						"fullPath": [
+							"arithmetic_mean_co"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714890223990": {
+			"nodeId": "node-1714890223990",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Location_Dimension",
+			"generatedNodeName": "Location_Dimension_node1714890223990",
+			"classification": "DataSource",
+			"type": "Catalog",
+			"isCatalog": true,
+			"database": "aqi_dw",
+			"table": "aqi_dw_location_dimension",
+			"calculatedType": "",
+			"runtimeParameters": [],
+			"codeGenVersion": 2
+		},
+		"node-1714891009326": {
+			"nodeId": "node-1714891009326",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "AirQualityPM25",
+			"generatedNodeName": "AirQualityPM25_node1714891009326",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.AirQualityPM25",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": [
+				[
+					{
+						"key": "location_id",
+						"fullPath": [
+							"location_id"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "date_local",
+						"fullPath": [
+							"date_local"
+						],
+						"type": "date",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "aqi_pm_2_5",
+						"fullPath": [
+							"aqi_pm_2_5"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_value_pm_2_5",
+						"fullPath": [
+							"first_max_value_pm_2_5"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_hour_pm_2_5",
+						"fullPath": [
+							"first_max_hour_pm_2_5"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "arithmetic_mean_pm_2_5",
+						"fullPath": [
+							"arithmetic_mean_pm_2_5"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714891194140": {
+			"nodeId": "node-1714891194140",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "AirQualityOzone",
+			"generatedNodeName": "AirQualityOzone_node1714891194140",
+			"classification": "DataSource",
+			"type": "MySQL",
+			"isCatalog": false,
+			"database": "AQI",
+			"table": "AQI_Normalized.AirQualityOzone",
+			"connectionName": "Mysql connection",
+			"connectionType": "mysql",
+			"redshiftTmpDir": "",
+			"outputSchemas": [
+				[
+					{
+						"key": "location_id",
+						"fullPath": [
+							"location_id"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "date_local",
+						"fullPath": [
+							"date_local"
+						],
+						"type": "date",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "aqi_ozone",
+						"fullPath": [
+							"aqi_ozone"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_value_ozone",
+						"fullPath": [
+							"first_max_value_ozone"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "first_max_hour_ozone",
+						"fullPath": [
+							"first_max_hour_ozone"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "arithmetic_mean_ozone",
+						"fullPath": [
+							"arithmetic_mean_ozone"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714894402798": {
+			"nodeId": "node-1714894402798",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1714891507132"
+			],
+			"name": "air_quality_fact",
+			"generatedNodeName": "air_quality_fact_node1714894402798",
+			"classification": "DataSink",
+			"type": "MySQL",
+			"streamingBatchInterval": 100,
+			"database": "aqi_dw",
+			"table": "aqi_dw_air_quality_fact",
+			"format": null,
+			"partitionKeys": [],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1714891507132": {
+			"nodeId": "node-1714891507132",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1714891396731",
+				"node-1714891009326",
+				"node-1714891089429",
+				"node-1714891194140",
+				"node-1714891194972",
+				"node-1714891195763",
+				"node-1714890223990"
+			],
+			"name": "Populate_Fact",
+			"generatedNodeName": "Populate_Fact_node1714891507132",
+			"classification": "Transform",
+			"type": "SqlCode",
+			"sqlAliases": [
+				{
+					"from": "node-1714891396731",
+					"alias": "Time_Dimension"
+				},
+				{
+					"from": "node-1714891009326",
+					"alias": "AirQualityPM25"
+				},
+				{
+					"from": "node-1714891089429",
+					"alias": "AirQualityPM10"
+				},
+				{
+					"from": "node-1714891194140",
+					"alias": "AirQualityOzone"
+				},
+				{
+					"from": "node-1714891194972",
+					"alias": "AirQualityNO2"
+				},
+				{
+					"from": "node-1714891195763",
+					"alias": "AirQualityCO"
+				},
+				{
+					"from": "node-1714890223990",
+					"alias": "Location_Dimension"
+				}
+			],
+			"outputSchemas": [
+				[
+					{
+						"key": "Location_Key",
+						"fullPath": [
+							"Location_Key"
+						],
+						"type": "bigint",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Time_Key",
+						"fullPath": [
+							"Time_Key"
+						],
+						"type": "bigint",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "AQI_co",
+						"fullPath": [
+							"AQI_co"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Value_co",
+						"fullPath": [
+							"1st_Max_Value_co"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Hour_co",
+						"fullPath": [
+							"1st_Max_Hour_co"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Arithmetic_Mean_co",
+						"fullPath": [
+							"Arithmetic_Mean_co"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "AQI_no2",
+						"fullPath": [
+							"AQI_no2"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Value_no2",
+						"fullPath": [
+							"1st_Max_Value_no2"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Hour_no2",
+						"fullPath": [
+							"1st_Max_Hour_no2"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Arithmetic_Mean_no2",
+						"fullPath": [
+							"Arithmetic_Mean_no2"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "AQI_ozone",
+						"fullPath": [
+							"AQI_ozone"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Value_ozone",
+						"fullPath": [
+							"1st_Max_Value_ozone"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Hour_ozone",
+						"fullPath": [
+							"1st_Max_Hour_ozone"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Arithmetic_Mean_ozone",
+						"fullPath": [
+							"Arithmetic_Mean_ozone"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "AQI_pm10",
+						"fullPath": [
+							"AQI_pm10"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Value_pm10",
+						"fullPath": [
+							"1st_Max_Value_pm10"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Hour_pm10",
+						"fullPath": [
+							"1st_Max_Hour_pm10"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Arithmetic_Mean_pm10",
+						"fullPath": [
+							"Arithmetic_Mean_pm10"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "AQI_pm25",
+						"fullPath": [
+							"AQI_pm25"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Value_pm25",
+						"fullPath": [
+							"1st_Max_Value_pm25"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "1st_Max_Hour_pm25",
+						"fullPath": [
+							"1st_Max_Hour_pm25"
+						],
+						"type": "int",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "Arithmetic_Mean_pm25",
+						"fullPath": [
+							"Arithmetic_Mean_pm25"
+						],
+						"type": "decimal",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"parentsValid": true,
+			"calculatedType": "",
+			"sqlQuery": "SELECT F.Location_Key,G.Time_Key,\nA.aqi_co AS AQI_co,A.first_max_value_co AS 1st_Max_Value_co,A.first_max_hour_co AS 1st_Max_Hour_co,\nA.arithmetic_mean_co AS Arithmetic_Mean_co,\nB.aqi_no2 AS AQI_no2,B.first_max_value_no2 AS 1st_Max_Value_no2,B.first_max_hour_no2 AS 1st_Max_Hour_no2,\nB.arithmetic_mean_no2 AS Arithmetic_Mean_no2,\nC.aqi_ozone AS AQI_ozone,C.first_max_value_ozone AS 1st_Max_Value_ozone,C.first_max_hour_ozone AS 1st_Max_Hour_ozone,\nC.arithmetic_mean_ozone AS Arithmetic_Mean_ozone,\nD.aqi_pm_10 AS AQI_pm10,D.first_max_value_pm_10 AS 1st_Max_Value_pm10,D.first_max_hour_pm_10 AS 1st_Max_Hour_pm10,\nD.arithmetic_mean_pm_10 AS Arithmetic_Mean_pm10,\t\nE.aqi_pm_2_5 AS AQI_pm25,E.first_max_value_pm_2_5 AS 1st_Max_Value_pm25,E.first_max_hour_pm_2_5 AS 1st_Max_Hour_pm25,\nE.arithmetic_mean_pm_2_5 AS Arithmetic_Mean_pm25\nFROM \n    Location_Dimension F\nJOIN \n    Time_Dimension G\nJOIN \n    AirQualityCO AS A ON DAY(A.date_local) = G.Day AND \n    MONTH(A.date_local) = G.Month AND YEAR(A.date_local) = G.Year AND F.Location_Key = A.location_id\nJOIN \n    AirQualityNO2 AS B ON F.Location_Key = B.location_id AND DAY(B.date_local) = G.Day AND\n    MONTH(B.date_local) = G.Month AND YEAR(B.date_local) = G.Year\nJOIN \n    AirQualityOzone AS C ON F.Location_Key = C.location_id AND DAY(C.date_local) = G.Day AND\n    MONTH(C.date_local) = G.Month AND YEAR(C.date_local) = G.Year\nJOIN \n    AirQualityPM10 AS D ON F.Location_Key = D.location_id AND DAY(D.date_local) = G.Day AND \n    MONTH(D.date_local) = G.Month AND YEAR(D.date_local) = G.Year\nJOIN \n    AirQualityPM25 AS E ON F.Location_Key = E.location_id AND DAY(E.date_local) = G.Day AND\n    MONTH(E.date_local) = G.Month AND YEAR(E.date_local) = G.Year;",
+			"codeGenVersion": 2
+		},
+		"node-1714891396731": {
+			"nodeId": "node-1714891396731",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Time_Dimension",
+			"generatedNodeName": "Time_Dimension_node1714891396731",
+			"classification": "DataSource",
+			"type": "Catalog",
+			"isCatalog": true,
+			"database": "aqi_dw",
+			"table": "aqi_dw_time_dimension",
+			"calculatedType": "",
+			"runtimeParameters": [],
+			"codeGenVersion": 2
+		}
+	},
+	"hasBeenSaved": false
+}
